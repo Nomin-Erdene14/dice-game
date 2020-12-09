@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border-radius: 10px;
     
 }
 
@@ -15,7 +16,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    background-image:  url('https://image.freepik.com/free-photo/abstract-paper-is-colorful-background-creative-design-pastel-wallpaper_6529-580.jpg');;
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -31,16 +32,17 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: rgb(228, 248, 252);
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    opacity: 75%;
 }
 
 .player-0-panel,
 .player-1-panel {
     width: 50%;
     float: left;
-    height: 600px;
+    height: 500px;
     padding: 100px;
 }
 
@@ -56,7 +58,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
-    margin-top: 20px;
+    margin-top: -15px;
     margin-bottom: 10px;
     position: relative;
 }
@@ -65,11 +67,11 @@ body {
     text-align: center;
     font-size: 80px;
     font-weight: 100;
-    color: #EB4D4D;
+    color: black;
     margin-bottom: 130px;
 }
 
-.active { background-color: #f7f7f7; }
+.active { background-color: #ffffff; }
 .active .player-name { font-weight: 300; }
 
 .active .player-name::after {
@@ -82,14 +84,23 @@ body {
     
 }
 
-.player-current-box {
-    background-color: #EB4D4D;
-    color: #fff;
+.player-current-box1 {
+    background : #fcdbf9;
+    color: rgb(0, 0, 0);
     width: 40%;
     margin: 0 auto;
-    padding: 12px;
+    padding: 16px;
     text-align: center;
 }
+.player-current-box2 {
+    background : #c1f1f5;
+    color: rgb(0, 0, 0);
+    width: 40%;
+    margin: 0 auto;
+    padding: 16px;
+    text-align: center;
+}
+
 
 .player-current-label {
     text-transform: uppercase;
@@ -137,8 +148,8 @@ i {
 }
 
 .btn-new { top: 45px;}
-.btn-roll { top: 403px;}
-.btn-hold { top: 467px;}
+.btn-roll { top: 363px;}
+.btn-hold { top: 417px;}
 
 .dice {
     position: absolute;

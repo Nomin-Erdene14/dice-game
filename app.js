@@ -11,12 +11,24 @@ var roundScore = 0;
 
 
 //Shoonii ali talara buusniig hadgalah huwicagch heregte, 1-6 gesen utgiig ene huwisagchid sanamsargui iisgej ogno
-var dice = Math.floor(Math.random() * 6)+1;
-document.querySelector("#score-0").textContent = 0;
-document.querySelector("#score-1").textContent = 0;
+var diceNumber = Math.floor(Math.random() * 6)+1;
+//Programm ehelhed beldey
+window.document.getElementsByName("score-0").textContent = "0";
+window.document.getElementsByName("score-1").textContent = "0";
 
-document.querySelector("#current-0").textContent = 0;
-document.querySelector("#current-1").textContent = 0;
+window.document.getElementsByName("current-0").textContent = "0";
+window.document.getElementsByName("current-1").textContent ="0";
 
-document.querySelector(".dice").getElementsByClassName.display = "none";
-console.log("Шоо:" +dice);
+
+var diceDom = window.document.querySelector(".dice");
+diceDom.style.display = "none"
+
+window.document.querySelector(".btn-roll").addEventListener('click',function (){
+    var diceNumber = Math.floor(Math.random() * 6)+1;
+ 
+
+
+   diceDom.style.display = "block";
+   diceDom.src = "dice-" + diceNumber + ".png";
+});
+
