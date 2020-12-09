@@ -37,17 +37,7 @@ window.document.querySelector(".btn-roll").addEventListener('click',function (){
        window.document.getElementById('current-'+ activePlayer).textContent=roundScore;
    }else{
        //1 buusan tul toglogchiin eeljiig neg heseg solij bolno
-       //ene toglogchiin  eeljin dr cugluulsn onoog noil bolgno
-       roundScore =0;
-       window.document.getElementById('current-'+ activePlayer).textContent=0;
-       //toglogchiin eelijiig nogoo toglogch ruu shiljuulne
-       activePlayer===0 ? (activePlayer=1) : (activePlayer=0);
-       //ulaan tsegiig shiljuulne
-       window.document.querySelector(".player-0-panel").classList.toggle("active");
-       window.document.querySelector(".player-1-panel").classList.toggle("active");
-       
-      //shoog alga bolgoh
-      diceDom.style.display = "none";
+       switchToNextPlayer();
     
 
     
@@ -61,5 +51,44 @@ window.document.querySelector(".btn-roll").addEventListener('click',function (){
    }
 
     
-});
+})
+//HOLD towchnii event 
+window.document.querySelector('.btn-hold').addEventListener('click',function(){
+    //ug toglogchiin cugluulsn eeljnii onoog global onoo dr nemj ogno
 
+    scorer[activePlayer] = scorer[activePlayer] + roundScore;
+    window.document.getElementById("score-" + activePlayer).textContent = scorer[activePlayer];
+    //ug toglogch hojson esehiig (onoo 100s ih) shalgana
+if (scorer[activePlayer] >=10){
+    //ylagch gsn text iig nernii orond gargana
+    window.document.getElementById("name-"+activePlayer).textContent = "WINNER!";
+    window.document.querySelector(".player-"+ activePlayer + "-panel").classList.add("winner");
+    window.document.querySelector(".player-"+ activePlayer + "-panel").classList.remove("active");
+    //toglogchiih eelj solih
+    switchToNextPlayer();
+    }
+
+   
+
+
+    //delgcend onoo oorchlno
+    window.document.getElementById('score-' + activePlayer).textContent = scorer[activePlayer];
+    //toglogchiin eeljiig solino
+  switchToNextPlayer();
+    
+});
+// ene function ni togloh eeljiig daraachiih ruu shiljuulne. 
+ function switchToNextPlayer(){
+    roundScore =0;
+    window.document.getElementById('current-'+ activePlayer).textContent=0;
+    //toglogchiin eelijiig nogoo toglogch ruu shiljuulne
+    activePlayer===0 ? (activePlayer=1) : (activePlayer=0);
+    //ulaan tsegiig shiljuulne
+    window.document.querySelector(".player-0-panel").classList.toggle("active");
+    window.document.querySelector(".player-1-panel").classList.toggle("active");
+    
+   //shoog alga bolgoh
+   diceDom.style.display = "none";
+ 
+
+ }
