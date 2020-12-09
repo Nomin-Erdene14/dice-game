@@ -1,16 +1,13 @@
-// Toglogchiin eeljiig hadgalh huwisagch, 1r toglogchiig 0, 2r toglogchiig 2 gj temdegley.
-var activePlayer = 0; 
-
-
-
-//Toglogchiin cugluulsn onoog hadgalah  huwicagch
-var scorer = [0, 0];
-
-// Tlogchiin eeljindee cugluulj bga onoog hadgalah huwisagch
-var roundScore = 0;
-
-
-//Shoonii ali talara buusniig hadgalah huwicagch heregte, 1-6 gesen utgiig ene huwisagchid sanamsargui iisgej ogno
+var activePlayer = 0; //idewhtei toglogch 
+var scorer = [0, 0]; //2totglogchiin tsugluulsn onoo
+var roundScore = 0; //idewehtei toglogchiin tsugluulj bga onoo
+var diceDom = window.document.querySelector(".dice");
+//togloom ehluuleh
+initGame();
+//togloomiig shineer ehlehd beltgene
+function initGame()
+{
+   //Shoonii ali talara buusniig hadgalah huwicagch heregte, 1-6 gesen utgiig ene huwisagchid sanamsargui iisgej ogno
 var diceNumber = Math.floor(Math.random() * 6)+1;
 //Programm ehelhed beldey
 window.document.getElementsByName("score-0").textContent = "0";
@@ -19,9 +16,27 @@ window.document.getElementsByName("score-1").textContent = "0";
 window.document.getElementsByName("current-0").textContent = "0";
 window.document.getElementsByName("current-1").textContent ="0";
 
+//toglogchdiin ner bucaaj gargna
+window.document.getElementById("name-0").textContent = "Player 1";
+window.document.getElementById("name-1").textContent = "Player 2";
 
-var diceDom = window.document.querySelector(".dice");
-diceDom.style.display = "none"
+window.document.querySelector('.player-0-panel').classList.remove('winner');
+window.document.querySelector('.player-1-panel').classList.remove('winner');
+
+window.document.getElementById('score-0').textContent = "0";
+window.document.getElementById('score-1').textContent = "0";
+
+window.document.querySelector('.player-0-panel').classList.remove('active');
+window.document.querySelector('.player-1-panel').classList.remove('active');
+
+window.document.querySelector('.player-0-panel').classList.add('active');
+window.document.querySelector('.player-1-panel').classList.add('active');
+
+diceDom.style.display = "none";
+};
+
+
+
 // shoog shideh event
 window.document.querySelector(".btn-roll").addEventListener('click',function (){
     //1-6 sanamsargui neg too gargna
@@ -38,20 +53,13 @@ window.document.querySelector(".btn-roll").addEventListener('click',function (){
    }else{
        //1 buusan tul toglogchiin eeljiig neg heseg solij bolno
        switchToNextPlayer();
-    
+     }
+});
 
-    
-       // herew idwhtei toglogch ni  0 baiwal idewhtei toglogchiig 1 bolno.
-       
-       // vgvi bol  idwhtei toglogch   0 bolgono.
 
-    
-      
 
-   }
 
-    
-})
+
 //HOLD towchnii event 
 window.document.querySelector('.btn-hold').addEventListener('click',function(){
     //ug toglogchiin cugluulsn eeljnii onoog global onoo dr nemj ogno
@@ -67,11 +75,7 @@ if (scorer[activePlayer] >=10){
     //toglogchiih eelj solih
     switchToNextPlayer();
     }
-
-   
-
-
-    //delgcend onoo oorchlno
+     //delgcend onoo oorchlno
     window.document.getElementById('score-' + activePlayer).textContent = scorer[activePlayer];
     //toglogchiin eeljiig solino
   switchToNextPlayer();
@@ -87,8 +91,13 @@ if (scorer[activePlayer] >=10){
     window.document.querySelector(".player-0-panel").classList.toggle("active");
     window.document.querySelector(".player-1-panel").classList.toggle("active");
     
-   //shoog alga bolgoh
+   //shoonii zurag alga bolgoh
    diceDom.style.display = "none";
- 
-
  }
+
+
+
+ //new Game towch darah ym bol hiih event
+ window.document.querySelector(".btn-new").addEventListener('click',initGame);
+
+ 
